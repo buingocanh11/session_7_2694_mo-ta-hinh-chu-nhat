@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+    <canvas id="myCanvas" height="300" width="300" style="border:1px solid #d3d3d3;"></canvas>
+    <br>
+    <script>
+        function Rectangle(lengths, widths) {
+            this.lengths = lengths;
+            this.widths = widths;
+            this.getLengths = function () {
+                return lengths;
+            }
+            this.getWidths = function () {
+                return widths;
+            }
+            this.getAcreage= function () {
+                return lengths*widths;
+            }
+            this.getPerimeter= function () {
+                return 2*(lengths+widths);
+            }
+        }
+
+        let rectangle = new Rectangle(6,4);
+        let lengths = rectangle.getLengths();
+        let widths = rectangle.getWidths();
+        let acreage = rectangle.getAcreage();
+        document.write("Diện tích hình chữ nhật là " + acreage);
+
+        function drawRectangle(){
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.fillRect(50,70,lengths*30,widths*30);
+        }
+        drawRectangle();
+    </script>
+
+
+</body>
+</html>
